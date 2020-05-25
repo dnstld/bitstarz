@@ -1,4 +1,4 @@
-$vars: (
+$colors: (
   primary: #00bd71,
   text: #141414,
   grey-100: #fafafa,
@@ -15,22 +15,22 @@ $vars: (
 );
 
 :root {
-  --primary: #{map-get($vars, primary)};
-  --text: #{map-get($vars, text)};
-  --grey-100: #{map-get($vars, grey-100)};
-  --grey-200: #{map-get($vars, grey-200)};
-  --grey-300: #{map-get($vars, grey-300)};
-  --grey-400: #{map-get($vars, grey-400)};
-  --grey-500: #{map-get($vars, grey-500)};
-  --grey-600: #{map-get($vars, grey-600)};
-  --grey-700: #{map-get($vars, grey-700)};
-  --grey-800: #{map-get($vars, grey-800)};
-  --grey-900: #{map-get($vars, grey-900)};
-  --black: #{map-get($vars, black)};
-  --white: #{map-get($vars, white)};
+  --primary: #{map-get($colors, primary)};
+  --text: #{map-get($colors, text)};
+  --grey-100: #{map-get($colors, grey-100)};
+  --grey-200: #{map-get($colors, grey-200)};
+  --grey-300: #{map-get($colors, grey-300)};
+  --grey-400: #{map-get($colors, grey-400)};
+  --grey-500: #{map-get($colors, grey-500)};
+  --grey-600: #{map-get($colors, grey-600)};
+  --grey-700: #{map-get($colors, grey-700)};
+  --grey-800: #{map-get($colors, grey-800)};
+  --grey-900: #{map-get($colors, grey-900)};
+  --black: #{map-get($colors, black)};
+  --white: #{map-get($colors, white)};
 };
 
-@mixin var($property, $varName) {
-  #{$property}: map-get($vars, $varName);
-  #{$property}: var(--#{$varName});
+@mixin var($property, $colorName) {
+  #{$property}: map-get($colors, $colorName);
+  #{$property}: var(--#{$colorName});
 }
