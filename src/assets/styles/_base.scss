@@ -1,0 +1,10 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  @include color("background-color", "grey-200");
+  @include color("color", "text");
+}
