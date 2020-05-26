@@ -20,8 +20,6 @@ export default {
   position: relative;
 
   &::after {
-    @include color("color", "text");
-    content: attr(data-stars);
     font-size: $text-14;
     font-weight: 700;
     left: 50%;
@@ -29,6 +27,8 @@ export default {
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
+    @include color("color", "text");
+    content: attr(data-stars);
   }
   &__img {
     width: 100%;

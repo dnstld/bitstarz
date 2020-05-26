@@ -44,8 +44,6 @@ $header-height: 4rem;
     text-transform: uppercase;
   }
   &__btnToggleMenu {
-    @extend .btn-reset;
-    @include color("color", "grey-500");
     background-color: rgba(255, 255, 255, .1);
     height: 1.5rem;
     position: absolute;
@@ -53,6 +51,8 @@ $header-height: 4rem;
     top: 50%;
     transform: translateY(-50%) rotate(180deg);
     width: 1.5rem;
+    @extend .btn-reset;
+    @include color("color", "grey-500");
   }
 }
 </style>

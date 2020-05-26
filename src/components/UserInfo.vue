@@ -58,13 +58,13 @@ export default {
     margin-left: .75rem;
   }
   &__btn {
-    @extend .btn-reset;
-    @include color("color", "grey-500");
     background-color: rgba(255, 255, 255, .1);
     border-radius: 50%;
     height: 1.5rem;
     width: 1.5rem;
     transform: rotate(270deg);
+    @extend .btn-reset;
+    @include color("color", "grey-500");
   }
 }
 </style>

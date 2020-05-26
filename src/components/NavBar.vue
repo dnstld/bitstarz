@@ -64,7 +64,6 @@ export default {
 <style lang="scss" scoped>
 .nav-bar {
   &__link {
-    @include color("color", "white");
     align-items: center;
     display: flex;
     opacity: .6;
@@ -72,6 +71,7 @@ export default {
     text-decoration: none;
     user-select: none;
     transition: opacity .3s ease-in-out;
+    @include color("color", "white");
 
     &--active {
       opacity: 1;

@@ -1,10 +1,7 @@
 <template>
   <div id="app" class="app">
     <MainMenu />
-
-    <div>
-      <router-view/>
-    </div>
+    <router-view/>
   </div>
 </template>
 
@@ -24,5 +21,6 @@ export default {
   display: flex;
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 </style>

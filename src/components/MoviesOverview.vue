@@ -65,8 +65,8 @@ export default {
     margin-bottom: .25rem;
   }
   &__countdescription {
-    @include color("color", "grey-300");
     font-size: $text-12;
+    @include color("color", "grey-300");
   }
   &__actions {
     display: grid;

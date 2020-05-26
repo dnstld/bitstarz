@@ -40,10 +40,10 @@ export default {
   width: 100%;
 
   &__progress {
-    @include color("background-color", "primary");
     display: block;
     height: 100%;
     transform: translateX(-100%);
+    @include color("background-color", "primary");
 
     &--dark {
       @include color("background-color", "grey-600");
