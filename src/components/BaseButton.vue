@@ -7,6 +7,7 @@
       'btn-bordered': bordered,
       'btn-uppercase': uppercase,
       'btn-lg': large,
+      'btn-full': full,
     }"
     class="btn"
   >
@@ -38,6 +39,10 @@ export default {
       default: false,
     },
     large: {
+      type: Boolean,
+      default: false,
+    },
+    full: {
       type: Boolean,
       default: false,
     },

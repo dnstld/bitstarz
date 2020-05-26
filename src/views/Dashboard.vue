@@ -1,23 +1,72 @@
 <template>
-  <div class="dashboard-panel">
+  <main class="dashboard-panel">
     <header class="dashboard-panel__header">
       <h1 class="dashboard-panel__title">Dashboard</h1>
     </header>
-    <section class="dashboard-panel__watched">Movies Watched</section>
-    <section class="dashboard-panel__coupons">My Coupons</section>
-    <section class="dashboard-panel__popular">Popular Movies</section>
-    <section class="dashboard-panel__card">Just a random card</section>
-  </div>
+
+    <section class="dashboard-panel__card dashboard-panel__watched">
+      <header class="dashboard-panel__cardheader">
+        <h2 class="dashboard-panel__cardtitle">Movies Watched</h2>
+        <button type="button" class="dashboard-panel__addmovie">Add New Movie</button>
+      </header>
+      <div class="dashboard-panel__cardcontent">
+        {{totalMovies}}
+      </div>
+      <footer class="dashboard-panel__cardfooter">
+        <BaseButton primary large uppercase full>
+          Big Green Button
+        </BaseButton>
+      </footer>
+    </section>
+
+    <section class="dashboard-panel__card dashboard-panel__coupons">
+      <header class="dashboard-panel__cardheader">
+        <h2 class="dashboard-panel__cardtitle">My Coupons</h2>
+      </header>
+      <div class="dashboard-panel__cardcontent">
+        content
+      </div>
+    </section>
+
+    <section class="dashboard-panel__card dashboard-panel__popular">
+      <header class="dashboard-panel__cardheader">
+        <h2 class="dashboard-panel__cardtitle">Popular Movies</h2>
+      </header>
+      <div class="dashboard-panel__cardcontent">
+        content
+      </div>
+    </section>
+
+    <section class="dashboard-panel__card dashboard-panel__card">
+      <header class="dashboard-panel__cardheader">
+        <h2 class="dashboard-panel__cardtitle">Just a random card</h2>
+      </header>
+      <div class="dashboard-panel__cardcontent">
+        content
+      </div>
+      <footer class="dashboard-panel__cardfooter">
+        <BaseButton primary uppercase full>
+          Big Green Button
+        </BaseButton>
+      </footer>
+    </section>
+  </main>
 </template>
 
 <script>
 export default {
   name: 'Dashboard',
+  data() {
+    return {
+      totalMovies: this.$store.state.totalMovies,
+    };
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .dashboard-panel {
+  $root: &;
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-rows: min-content;
@@ -49,21 +98,62 @@ export default {
   &__title {
     font-size: $text-24;
   }
+  &__card {
+    background: white;
+    background:
+      linear-gradient(135deg, transparent 10px, white 0) top left,
+      linear-gradient(225deg, transparent 10px, white 0) top right,
+      linear-gradient(315deg, transparent 10px, white 0) bottom right,
+      linear-gradient(45deg,  transparent 10px, white 0) bottom left;
+    background-repeat: no-repeat;
+    background-size: 50% 50%;
+    box-shadow: 0px 12px 14px rgba(0, 0, 0, .05);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  &__cardtitle {
+    font-size: $text-13;
+    font-weight: 500;
+    text-transform: uppercase;
+    @include color("color", "grey-700");
+  }
+  &__cardcontent {
+    flex: 1;
+    overflow-y: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
   &__watched {
     grid-area: watched;
-    border: 1px solid;
+
+    #{$root}__cardheader {
+      display: flex;
+      justify-content: space-between;
+    }
+    #{$root}__addmovie {
+      background-color: transparent;
+      font-size: $text-14;
+      font-weight: 500;
+      text-decoration: underline;
+      @extend .btn-reset;
+    }
+    #{$root}__cardcontent {
+      align-items: center;
+      display: flex;
+      font-size: $text-72;
+      font-weight: 700;
+      justify-content: center;
+    }
+  }
+  &__totalmovies {
+
   }
   &__coupons {
     grid-area: coupons;
-    border: 1px solid;
   }
   &__popular {
     grid-area: popular;
-    border: 1px solid;
-  }
-  &__card {
-    grid-area: card;
-    border: 1px solid;
   }
 }
 </style>
