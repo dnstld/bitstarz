@@ -74,6 +74,7 @@ export default {
     @include color("color", "white");
 
     &--active {
+      background-color: rgba(255, 255, 255, .1);
       opacity: 1;
       cursor: default;
     }

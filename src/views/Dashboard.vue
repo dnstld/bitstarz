@@ -37,16 +37,19 @@
       </div>
     </section>
 
-    <section class="dashboard-panel__card dashboard-panel__card">
-      <header class="dashboard-panel__cardheader">
-        <h2 class="dashboard-panel__cardtitle">Just a random card</h2>
-      </header>
+    <section class="dashboard-panel__card dashboard-panel__random">
       <div class="dashboard-panel__cardcontent">
-        content
+        <div class="dashboard-panel__emoji">
+          <img src="/images/emoji.svg" alt="Smilling Face" class="dashboard-panel__emojisvg">
+        </div>
+        <span class="dashboard-panel__randomtitle">Just a random card</span>
+        <p>Far far away, behind the word mountains,
+          far from the countries Vokalia and Consonantia,
+          there live the blind texts.</p>
       </div>
       <footer class="dashboard-panel__cardfooter">
-        <BaseButton primary uppercase full>
-          Big Green Button
+        <BaseButton bordered large uppercase full>
+          Click to flip the card
         </BaseButton>
       </footer>
     </section>
@@ -76,7 +79,7 @@ export default {
     "watched"
     "coupons"
     "popular"
-    "card";
+    "random";
   overflow-y: auto;
   width: 100%;
   padding: 1rem;
@@ -89,7 +92,7 @@ export default {
     grid-template-areas:
       "header header header"
       "watched coupons coupons"
-      "watched popular card";
+      "watched popular random";
   }
 
   &__header {
@@ -154,6 +157,30 @@ export default {
   }
   &__popular {
     grid-area: popular;
+  }
+  &__random {
+    #{$root}__cardcontent {
+      align-items: center;
+      display: flex;
+      font-size: $text-14;
+      line-height: 150%;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      @include color("color", "grey-700");
+    }
+    #{$root}__emoji {
+      margin-bottom: 1.5rem;
+      width: 2.25rem;
+    }
+    #{$root}__emojisvj {
+      width: 100%;
+    }
+    #{$root}__randomtitle {
+      font-size: $text-20;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
   }
 }
 </style>
