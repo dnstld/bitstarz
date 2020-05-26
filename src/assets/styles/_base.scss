@@ -2,10 +2,10 @@ html,
 body {
   height: 100%;
   width: 100%;
-  font-family: "Roboto", "Arial", sans-serif;
 }
 
 body {
   @include color("background-color", "grey-200");
   @include color("color", "text");
+  font-family: "Roboto", "Arial", sans-serif;
 }

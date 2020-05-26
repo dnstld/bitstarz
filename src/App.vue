@@ -1,13 +1,28 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Dashboard</router-link>
+  <div id="app" class="app">
+    <MainMenu />
+
+    <div>
+      <router-view/>
     </div>
-    <router-view/>
   </div>
 </template>
 
+<script>
+import MainMenu from '@/components/MainMenu.vue';
+
+export default {
+  name: 'App',
+  components: {
+    MainMenu,
+  },
+};
+</script>
+
 <style lang="scss">
-#app {
+.app {
+  display: flex;
+  height: 100%;
+  width: 100%;
 }
 </style>

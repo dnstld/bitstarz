@@ -3,6 +3,7 @@ import upperFirst from 'lodash/upperFirst';
 import camelCase from 'lodash/camelCase';
 import App from './App.vue';
 import router from './router';
+import store from './store';
 
 const requireComponent = require.context(
   './components',
@@ -32,5 +33,6 @@ Vue.config.productionTip = false;
 
 new Vue({
   router,
+  store,
   render: (h) => h(App),
 }).$mount('#app');
