@@ -5,6 +5,7 @@
       'btn-primary': primary,
       'btn-secondary': secondary,
       'btn-bordered': bordered,
+      'btn-uppercase': uppercase,
       'btn-lg': large,
     }"
     class="btn"
@@ -29,6 +30,10 @@ export default {
       default: false,
     },
     bordered: {
+      type: Boolean,
+      default: false,
+    },
+    uppercase: {
       type: Boolean,
       default: false,
     },

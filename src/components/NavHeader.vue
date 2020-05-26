@@ -51,7 +51,7 @@ $header-height: 4rem;
     position: absolute;
     right: 0;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%) rotate(180deg);
     width: 1.5rem;
   }
 }

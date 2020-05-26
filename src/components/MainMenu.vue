@@ -1,17 +1,20 @@
 <template>
   <div class="main-menu">
     <NavHeader />
+    <AccountOverview />
     <NavBar />
   </div>
 </template>
 
 <script>
 import NavHeader from '@/components/NavHeader.vue';
+import AccountOverview from '@/components/AccountOverview.vue';
 import NavBar from '@/components/NavBar.vue';
 
 export default {
   components: {
     NavHeader,
+    AccountOverview,
     NavBar,
   },
 };
@@ -26,5 +29,6 @@ $max-width: 262px;
   @include color("color", "white");
   width: 100%;
   max-width: $max-width;
+  overflow-y: auto;
 }
 </style>
