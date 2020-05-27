@@ -1,17 +1,20 @@
 <template>
   <div class="base-progress-bar">
-    <span
-      role="progressbar"
-      aria-valuemin="0"
-      aria-valuemax="100"
-      class="base-progress-bar__progress"
-      :style="{ transform: 'translateX(-'+ progressValue +'%)' }"
-      :class="{'base-progress-bar__progress--dark':secondary}">
-    </span>
+    <transition appear @before-enter="beforeEnter" @enter="enter" :css="false">
+      <span
+        role="progressbar"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        class="base-progress-bar__progress"
+        :class="{'base-progress-bar__progress--dark':secondary}">
+      </span>
+    </transition>
   </div>
 </template>
 
 <script>
+import gsap from 'gsap';
+
 export default {
   props: {
     progress: {
@@ -28,6 +31,18 @@ export default {
       return 100 - this.progress;
     },
   },
+  methods: {
+    beforeEnter(el) {
+      // eslint-disable-next-line no-param-reassign
+      el.style.transform = 'translateX(-100%)';
+    },
+    enter(el, done) {
+      gsap.to(el, {
+        transform: `translateX(-${this.progressValue}%)`,
+        onComplete: done,
+      });
+    },
+  },
 };
 </script>
 
@@ -42,7 +57,6 @@ export default {
   &__progress {
     display: block;
     height: 100%;
-    transform: translateX(-100%);
     @include color("background-color", "primary");
 
     &--dark {
