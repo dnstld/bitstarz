@@ -69,11 +69,22 @@
 </template>
 
 <script>
+import gsap from 'gsap';
 import PopularMovies from '@/components/PopularMovies.vue';
 import MyCoupons from '@/components/MyCoupons.vue';
 
 export default {
   name: 'Dashboard',
+  mounted() {
+    gsap.from('.dashboard-panel__card', {
+      duration: 0.5,
+      opacity: 0,
+      scale: 0,
+      y: 200,
+      ease: 'power1',
+      stagger: 0.3,
+    });
+  },
   components: {
     PopularMovies,
     MyCoupons,
