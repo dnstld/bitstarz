@@ -14,6 +14,13 @@ const routes = [
     name: 'Dashboard',
     component: Dashboard,
     alias: '/dashboard',
+    children: [
+      {
+        path: '/dashboard/add-new-movie',
+        name: 'AddNewMovie',
+        component: () => import('../views/AddNewMovie.vue'),
+      },
+    ],
   },
 ];
 

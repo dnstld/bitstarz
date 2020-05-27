@@ -7,7 +7,9 @@
     <section class="dashboard-panel__card dashboard-panel__watched">
       <header class="dashboard-panel__cardheader">
         <h2 class="dashboard-panel__cardtitle">Movies Watched</h2>
-        <button type="button" class="dashboard-panel__addmovie">Add New Movie</button>
+        <router-link to="/dashboard/add-new-movie" class="dashboard-panel__addmovie">
+          Add New Movie
+        </router-link>
       </header>
       <div class="dashboard-panel__cardcontent">
         {{totalMovies}}
@@ -53,6 +55,16 @@
         </BaseButton>
       </footer>
     </section>
+
+    <transition name="fade">
+      <div
+        v-if="isAddMovieModalOpen"
+        @click.self="closeModal"
+        class="dashboard-panel__modalbackdrop"
+      >
+        <router-view />
+      </div>
+    </transition>
   </main>
 </template>
 
@@ -70,6 +82,16 @@ export default {
     return {
       totalMovies: this.$store.state.totalMovies,
     };
+  },
+  computed: {
+    isAddMovieModalOpen() {
+      return this.$route.name === 'AddNewMovie';
+    },
+  },
+  methods: {
+    closeModal() {
+      this.$router.push({ name: 'Dashboard' });
+    },
   },
 };
 </script>
@@ -90,6 +112,7 @@ export default {
   overflow-y: auto;
   width: 100%;
   padding: 1rem;
+  position: relative;
 
   @media (min-width: 1200px) {
     grid-template-columns: 1fr 1fr 1fr;
@@ -147,8 +170,7 @@ export default {
       background-color: transparent;
       font-size: $text-14;
       font-weight: 500;
-      text-decoration: underline;
-      @extend .btn-reset;
+      @include color("color", "text");
     }
     #{$root}__cardcontent {
       align-items: center;
@@ -199,6 +221,17 @@ export default {
       margin-bottom: 1rem;
       text-transform: uppercase;
     }
+  }
+  &__modalbackdrop {
+    align-items: center;
+    background-color: rgba(0, 0, 0, .6);
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
 }
 </style>
