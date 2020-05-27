@@ -6,7 +6,7 @@
       'btn-secondary': secondary,
       'btn-bordered': bordered,
       'btn-uppercase': uppercase,
-      'btn-lg': large,
+      'btn-large': large,
       'btn-full': full,
     }"
     class="btn"
