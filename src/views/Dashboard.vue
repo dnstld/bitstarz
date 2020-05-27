@@ -24,7 +24,7 @@
         <h2 class="dashboard-panel__cardtitle">My Coupons</h2>
       </header>
       <div class="dashboard-panel__cardcontent">
-        content
+        <MyCoupons />
       </div>
     </section>
 
@@ -33,7 +33,7 @@
         <h2 class="dashboard-panel__cardtitle">Popular Movies</h2>
       </header>
       <div class="dashboard-panel__cardcontent">
-        content
+        <PopularMovies />
       </div>
     </section>
 
@@ -57,8 +57,15 @@
 </template>
 
 <script>
+import PopularMovies from '@/components/PopularMovies.vue';
+import MyCoupons from '@/components/MyCoupons.vue';
+
 export default {
   name: 'Dashboard',
+  components: {
+    PopularMovies,
+    MyCoupons,
+  },
   data() {
     return {
       totalMovies: this.$store.state.totalMovies,
@@ -72,7 +79,7 @@ export default {
   $root: &;
   display: grid;
   grid-template-columns: 1fr;
-  grid-auto-rows: min-content;
+  grid-auto-rows: auto minmax(250px, min-content);
   grid-row-gap: 1rem;
   grid-template-areas:
     "header"
@@ -86,13 +93,15 @@ export default {
 
   @media (min-width: 1200px) {
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto 1fr 1fr;
+    grid-template-rows: auto minmax(200px, 1fr) minmax(200px, 1fr);
     grid-gap: 1.5rem;
+    overflow-y: hidden;
     padding: 1.5rem;
     grid-template-areas:
       "header header header"
       "watched coupons coupons"
       "watched popular random";
+
   }
 
   &__header {
@@ -149,14 +158,23 @@ export default {
       justify-content: center;
     }
   }
-  &__totalmovies {
-
-  }
   &__coupons {
     grid-area: coupons;
+
+    #{$root}__cardcontent {
+      margin-bottom: -1rem;
+      margin-left: -1rem;
+      margin-right: -1rem;
+    }
   }
   &__popular {
     grid-area: popular;
+
+    #{$root}__cardcontent {
+      margin-bottom: -1rem;
+      margin-left: -1rem;
+      margin-right: -1rem;
+    }
   }
   &__random {
     #{$root}__cardcontent {
