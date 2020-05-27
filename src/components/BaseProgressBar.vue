@@ -38,6 +38,8 @@ export default {
     },
     enter(el, done) {
       gsap.to(el, {
+        duration: 2,
+        ease: 'power1.in',
         transform: `translateX(-${this.progressValue}%)`,
         onComplete: done,
       });
