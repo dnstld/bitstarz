@@ -41,16 +41,17 @@
 
     <section class="dashboard-panel__card dashboard-panel__random">
       <div class="dashboard-panel__cardcontent">
-        <div class="dashboard-panel__emoji">
-          <img src="/images/emoji.svg" alt="Smilling Face" class="dashboard-panel__emojisvg">
-        </div>
-        <span class="dashboard-panel__randomtitle">Just a random card</span>
-        <p>Far far away, behind the word mountains,
-          far from the countries Vokalia and Consonantia,
-          there live the blind texts.</p>
+        <FlipCard :flipCard="this.isFlipCard" />
       </div>
+
       <footer class="dashboard-panel__cardfooter">
-        <BaseButton bordered large uppercase full>
+        <BaseButton
+          bordered
+          large
+          uppercase
+          full
+          @click="handleFlipCard"
+        >
           Click to flip the card
         </BaseButton>
       </footer>
@@ -72,6 +73,7 @@
 import gsap from 'gsap';
 import PopularMovies from '@/components/PopularMovies.vue';
 import MyCoupons from '@/components/MyCoupons.vue';
+import FlipCard from '@/components/FlipCard.vue';
 
 export default {
   name: 'Dashboard',
@@ -88,10 +90,12 @@ export default {
   components: {
     PopularMovies,
     MyCoupons,
+    FlipCard,
   },
   data() {
     return {
       totalMovies: this.$store.state.totalMovies,
+      isFlipCard: false,
     };
   },
   computed: {
@@ -102,6 +106,9 @@ export default {
   methods: {
     closeModal() {
       this.$router.push({ name: 'Dashboard' });
+    },
+    handleFlipCard() {
+      this.isFlipCard = !this.isFlipCard;
     },
   },
 };
@@ -129,7 +136,6 @@ export default {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto minmax(200px, 1fr) minmax(200px, 1fr);
     grid-gap: 1.5rem;
-    overflow-y: hidden;
     padding: 1.5rem;
     grid-template-areas:
       "header header header"
