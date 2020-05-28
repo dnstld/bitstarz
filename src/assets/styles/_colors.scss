@@ -30,7 +30,7 @@ $colors: (
   --white: #{map-get($colors, white)};
 };
 
-@mixin color($property, $colorName) {
-  #{$property}: map-get($colors, $colorName);
-  #{$property}: var(--#{$colorName});
+@mixin color($property, $colorName, $important:"") {
+  #{$property}: map-get($colors, $colorName) #{$important};
+  #{$property}: var(--#{$colorName}) #{$important};
 }
