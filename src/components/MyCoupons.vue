@@ -39,11 +39,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$bg-item: #fff;
+$bg-item-hover: #FFF6DE;
+
 .my-coupons {
   &__item {
-    display: flex;
     align-items: center;
+    background: linear-gradient(
+      70deg,
+    $bg-item 40%,
+    $bg-item-hover 40%,
+    $bg-item-hover 60%,
+    $bg-item 60%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 0;
+    cursor: default;
+    display: flex;
     padding: 1rem;
+    transition: all .75s ease-in;
+
+    &:hover {
+      background-size: 900%;
+    }
   }
   &__ticket {
     width: 1.5rem;
