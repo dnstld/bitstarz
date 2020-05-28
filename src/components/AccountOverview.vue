@@ -2,7 +2,9 @@
   <section class="account-overview" :class="{ 'account-overview--opened':isMenuOpened }">
     <div v-if="isMenuOpened" class="account-overview__details account-overview__full">
       <UserInfo />
-      <MoviesOverview v-if="isShowOverview" />
+      <transition appear @before-enter="beforeEnter" @enter="enter" :css="false">
+        <MoviesOverview v-if="isShowOverview" />
+      </transition>
     </div>
     <div v-else class="account-overview__details account-overview__narrow">
       <div class="account-overview__narrowitem">
@@ -26,6 +28,7 @@
 import UserInfo from '@/components/UserInfo.vue';
 import MoviesOverview from '@/components/MoviesOverview.vue';
 import UserStars from '@/components/UserStars.vue';
+import gsap from 'gsap';
 
 export default {
   components: {
@@ -46,6 +49,24 @@ export default {
     },
     isShowOverview() {
       return this.$store.state.isMoviesOverviewOpened && this.isMenuOpened;
+    },
+  },
+  methods: {
+    /* eslint-disable no-param-reassign */
+    beforeEnter(el) {
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(-50px)';
+    },
+    enter(el, done) {
+      gsap.to(el, {
+        duration: 0.3,
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        ease: 'power1',
+        stagger: 0.3,
+        onComplete: done,
+      });
     },
   },
 };

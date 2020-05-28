@@ -10,7 +10,13 @@
         type="button"
         class="user-info__btn"
       >
-        <BaseIcon name="arrow" width="12" height="12" />
+        <BaseIcon
+          name="arrow"
+          width="12"
+          height="12"
+          class="user-info__btnicon"
+          :class="{ 'user-info__btnicon--opened': isShowOverview }"
+        />
       </button>
     </header>
     <BaseProgressBar :progress="userProgreesBarValue" />
@@ -30,7 +36,13 @@ export default {
     return {
       userName: this.$store.state.userName,
       userProgreesBarValue: this.$store.state.userProgreesBarValue,
+      isMoviesOverviewOpened: this.$store.state.isMoviesOverviewOpened,
     };
+  },
+  computed: {
+    isShowOverview() {
+      return this.$store.state.isMoviesOverviewOpened;
+    },
   },
   methods: {
     toggleShowMoviesOverview() {
@@ -65,6 +77,13 @@ export default {
     transform: rotate(270deg);
     @extend .btn-reset;
     @include color("color", "grey-500");
+  }
+  &__btnicon {
+    transition: transform .3s;
+
+    &--opened {
+      transform: rotate(180deg);
+    }
   }
 }
 </style>
