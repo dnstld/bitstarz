@@ -1,0 +1,8 @@
+#nprogress .bar {
+  @include color("background", "primary", "!important");
+}
+
+#nprogress .spinner-icon {
+  @include color("border-top-color", "primary", "!important");
+  @include color("border-left-color", "primary", "!important");
+}
