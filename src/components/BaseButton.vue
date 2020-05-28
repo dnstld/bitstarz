@@ -1,5 +1,6 @@
 <template>
   <button
+    v-on="$listeners"
     :type="type"
     :class="{
       'btn-primary': primary,
