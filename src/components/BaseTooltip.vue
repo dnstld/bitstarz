@@ -21,30 +21,37 @@ export default {
 
 <style lang="scss" scoped>
 .base-tooltip {
-  @extend .btn-reset;
+  $root: &;
   background-color: transparent;
   cursor: default;
   display: inline-block;
   position: relative;
+  @extend .btn-reset;
 
   &:focus {
     outline: none;
+  }
+  &:hover {
+    #{$root}__content {
+      opacity: 1;
+      visibility: visible;
+    }
   }
   &__content {
     border-radius: .25rem;
     border: 1px solid;
     box-sizing: border-box;
     font-size: $text-18;
-    font-weight:normal;
+    font-weight: normal;
     left: 100%;
     margin-left: .5rem;
-    opacity:1;
+    opacity: 0;
     padding: .25rem 1.5rem;
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
-    transition: opacity 0.8s;
-    visibility: visible;
+    transition: opacity .8s;
+    visibility: hidden;
     z-index: 100;
     @include color("background-color", "grey-500");
     @include color("color", "black");
