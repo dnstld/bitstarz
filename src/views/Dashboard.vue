@@ -1,5 +1,5 @@
 <template>
-  <main class="dashboard-panel">
+  <div class="dashboard-panel">
     <header class="dashboard-panel__header">
       <h1 class="dashboard-panel__title">Dashboard</h1>
     </header>
@@ -66,7 +66,7 @@
         <router-view />
       </div>
     </transition>
-  </main>
+  </div>
 </template>
 
 <script>
@@ -118,7 +118,7 @@ export default {
 .dashboard-panel {
   $root: &;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 100%;
   grid-auto-rows: auto minmax(250px, min-content);
   grid-row-gap: 1rem;
   grid-template-areas:
@@ -131,6 +131,7 @@ export default {
   width: 100%;
   padding: 1rem;
   position: relative;
+  box-sizing: border-box;
 
   @media (min-width: 1200px) {
     grid-template-columns: 1fr 1fr 1fr;
@@ -163,6 +164,7 @@ export default {
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    box-sizing: border-box;
   }
   &__cardtitle {
     font-size: $text-13;

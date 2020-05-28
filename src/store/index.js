@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    isMenuOpened: true,
+    isMenuOpened: false,
     isMoviesOverviewOpened: true,
     userName: 'johndoe2000',
     userTotalStars: 8,

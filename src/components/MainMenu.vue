@@ -21,14 +21,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$min-width: 90px;
-$max-width: 262px;
-
 .main-menu {
   flex-shrink: 0;
-  width: 100%;
-  max-width: $max-width;
-  overflow-y: auto;
   @include color("background-color", "grey-900");
   @include color("color", "white");
 }

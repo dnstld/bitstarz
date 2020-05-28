@@ -2,7 +2,11 @@
   <nav class="nav-bar">
     <ul class="nav-bar__list">
       <li class="nav-bar__item">
-        <router-link to="/dashboard" class="nav-bar__link">
+        <router-link
+          to="/dashboard"
+          class="nav-bar__link"
+          :class="{ 'nav-bar__link--menuopened': isMenuOpened }"
+        >
           <BaseIcon name="dashboard" />
           <template v-if="isMenuOpened">
             <span class="nav-bar__text">Dashboard</span>
@@ -10,7 +14,11 @@
         </router-link>
       </li>
       <li class="nav-bar__item">
-        <router-link to="/" class="nav-bar__link">
+        <router-link
+          to="/"
+          class="nav-bar__link"
+          :class="{ 'nav-bar__link--menuopened': isMenuOpened }"
+        >
           <BaseIcon name="clock" />
           <template v-if="isMenuOpened">
             <span class="nav-bar__text">Hurry Up</span>
@@ -18,7 +26,11 @@
         </router-link>
       </li>
       <li class="nav-bar__item">
-        <router-link to="/" class="nav-bar__link">
+        <router-link
+          to="/"
+          class="nav-bar__link"
+          :class="{ 'nav-bar__link--menuopened': isMenuOpened }"
+        >
           <BaseIcon name="gift" />
           <template v-if="isMenuOpened">
             <span class="nav-bar__text">Be Nice</span>
@@ -26,7 +38,11 @@
         </router-link>
       </li>
       <li class="nav-bar__item">
-        <router-link to="/" class="nav-bar__link">
+        <router-link
+          to="/"
+          class="nav-bar__link"
+          :class="{ 'nav-bar__link--menuopened': isMenuOpened }"
+        >
           <BaseIcon name="user" />
           <template v-if="isMenuOpened">
             <span class="nav-bar__text">Your Profile</span>
@@ -34,7 +50,11 @@
         </router-link>
       </li>
       <li class="nav-bar__item">
-        <router-link to="/" class="nav-bar__link">
+        <router-link
+          to="/"
+          class="nav-bar__link"
+          :class="{ 'nav-bar__link--menuopened': isMenuOpened }"
+        >
           <BaseIcon name="megaphone" />
           <template v-if="isMenuOpened">
             <span class="nav-bar__text"></span>
@@ -66,6 +86,7 @@ export default {
   &__link {
     align-items: center;
     display: flex;
+    justify-content: center;
     opacity: .6;
     padding: 1rem;
     text-decoration: none;
@@ -77,6 +98,9 @@ export default {
       background-color: rgba(255, 255, 255, .1);
       opacity: 1;
       cursor: default;
+    }
+    &--menuopened {
+      justify-content: flex-start;
     }
     &:hover {
       opacity: .9;
