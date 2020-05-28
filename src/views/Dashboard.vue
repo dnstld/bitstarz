@@ -15,7 +15,14 @@
         {{totalMovies}}
       </div>
       <footer class="dashboard-panel__cardfooter">
-        <BaseButton primary large uppercase full>
+        <BaseButton
+          primary
+          large
+          uppercase
+          full
+          class="dashboard-panel__bigbutton"
+          :class="{ 'dashboard-panel__bigbutton--animated': isBigButtonAnimated }"
+        >
           Big Green Button
         </BaseButton>
       </footer>
@@ -96,6 +103,7 @@ export default {
     return {
       totalMovies: this.$store.state.totalMovies,
       isFlipCard: false,
+      isBigButtonAnimated: false,
     };
   },
   computed: {
@@ -198,6 +206,9 @@ export default {
       font-weight: 700;
       justify-content: center;
     }
+    #{$root}__bigbutton {
+      animation: shakeBigGreenButton 5s ease 2s infinite;
+    }
   }
   &__coupons {
     grid-area: coupons;
@@ -251,6 +262,26 @@ export default {
     position: absolute;
     top: 0;
     width: 100%;
+  }
+}
+@keyframes shakeBigGreenButton {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  2% {
+    transform: translate(1px, 1px) rotate(1deg);
+  }
+  4% {
+    transform: translate(-1px, -1px) rotate(-1deg);
+  }
+  6% {
+    transform: translate(2px, -1px) rotate(2deg);
+  }
+  8% {
+    transform: translate(-1px, 1px) rotate(1deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
   }
 }
 </style>
