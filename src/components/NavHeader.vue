@@ -9,7 +9,12 @@
       type="button"
       class="nav-header__btnToggleMenu"
     >
-      <BaseIcon name="arrow" width="12" height="12" />
+      <BaseIcon
+        name="arrow"
+        width="12"
+        height="12"
+        :class="{ 'nav-header__btnicon--opened': isMenuOpened }"
+      />
     </button>
   </header>
 </template>
@@ -53,6 +58,13 @@ $header-height: 4rem;
     width: 1.5rem;
     @extend .btn-reset;
     @include color("color", "grey-500");
+  }
+  &__btnicon {
+    transition: transform .3s;
+
+    &--opened {
+      transform: rotate(180deg);
+    }
   }
 }
 </style>

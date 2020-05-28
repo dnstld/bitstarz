@@ -7,19 +7,25 @@
       </transition>
     </div>
     <div v-else class="account-overview__details account-overview__narrow">
-      <div class="account-overview__narrowitem">
-        <UserStars />
-      </div>
-      <div class="account-overview__narrowitem">
-        <BaseTooltip :text="totalMovies">
-          <BaseIcon name="movie" />
-        </BaseTooltip>
-      </div>
-      <div class="account-overview__narrowitem">
-        <BaseButton primary>
-          <BaseIcon name="plus" />
-        </BaseButton>
-      </div>
+      <transition appear @before-enter="beforeEnter" @enter="enter" :css="false">
+        <div class="account-overview__narrowitem">
+          <UserStars />
+        </div>
+      </transition>
+      <transition appear @before-enter="beforeEnter" @enter="enter" :css="false">
+        <div class="account-overview__narrowitem">
+          <BaseTooltip :text="totalMovies">
+            <BaseIcon name="movie" />
+          </BaseTooltip>
+        </div>
+      </transition>
+      <transition appear @before-enter="beforeEnter" @enter="enter" :css="false">
+        <div class="account-overview__narrowitem">
+          <BaseButton primary>
+            <BaseIcon name="plus" />
+          </BaseButton>
+        </div>
+      </transition>
     </div>
   </section>
 </template>
