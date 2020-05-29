@@ -47,7 +47,7 @@
 
     <section class="dashboard-panel__card dashboard-panel__random">
       <div class="dashboard-panel__cardcontent">
-        <FlipCard :flipCard="this.isFlipCard" />
+        <RandomFlipCard :flipCard="this.isFlipCard" />
       </div>
 
       <footer class="dashboard-panel__cardfooter">
@@ -79,7 +79,7 @@
 import gsap from 'gsap';
 import PopularMovies from '@/components/PopularMovies.vue';
 import MyCoupons from '@/components/MyCoupons.vue';
-import FlipCard from '@/components/FlipCard.vue';
+import RandomFlipCard from '@/components/RandomFlipCard.vue';
 
 export default {
   name: 'Dashboard',
@@ -96,7 +96,7 @@ export default {
   components: {
     PopularMovies,
     MyCoupons,
-    FlipCard,
+    RandomFlipCard,
   },
   data() {
     return {
@@ -121,6 +121,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$font-size-page-title: $text-24;
+$font-size-sections-title: $text-13;
+$font-weight-sections-title: 500;
+$font-size-add-movie-button: $text-14;
+$font-weight-add-movie-button: 500;
+$font-size-total-movies-watched: $text-72;
+$font-weight-total-movies-watched: 700;
+$font-size-random-card: $text-14;
+$height-mobile-random-card: 350px;
+$bg-backdrop-modal: rgba(0, 0, 0, .6);
+
 .dashboard-panel {
   $root: &;
   overflow-y: auto;
@@ -146,7 +157,7 @@ export default {
     grid-area: header;
   }
   &__title {
-    font-size: $text-24;
+    font-size: $font-size-page-title;
   }
   &__card {
     background: white;
@@ -169,8 +180,8 @@ export default {
     }
   }
   &__cardtitle {
-    font-size: $text-13;
-    font-weight: 500;
+    font-size: $font-size-sections-title;
+    font-weight: $font-weight-sections-title;
     text-transform: uppercase;
     @include color("color", "grey-700");
   }
@@ -189,15 +200,15 @@ export default {
     }
     #{$root}__addmovie {
       background-color: transparent;
-      font-size: $text-14;
-      font-weight: 500;
+      font-size: $font-size-add-movie-button;
+      font-weight: $font-weight-add-movie-button;
       @include color("color", "text");
     }
     #{$root}__cardcontent {
       align-items: center;
       display: flex;
-      font-size: $text-72;
-      font-weight: 700;
+      font-size: $font-size-total-movies-watched;
+      font-weight:  $font-weight-total-movies-watched;
       justify-content: center;
     }
     #{$root}__bigbutton {
@@ -232,9 +243,9 @@ export default {
     #{$root}__cardcontent {
       align-items: center;
       display: flex;
-      font-size: $text-14;
+      font-size: $font-size-random-card;
       line-height: 150%;
-      height: 350px;
+      height: $height-mobile-random-card;
       justify-content: center;
       flex-direction: column;
       text-align: center;
@@ -247,7 +258,7 @@ export default {
   }
   &__modalbackdrop {
     align-items: center;
-    background-color: rgba(0, 0, 0, .6);
+    background-color: $bg-backdrop-modal;
     display: flex;
     height: 100%;
     justify-content: center;

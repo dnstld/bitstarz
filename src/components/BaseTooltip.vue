@@ -20,6 +20,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$radius: .25rem;
+$font-size: $text-18;
+
 .base-tooltip {
   $root: &;
   background-color: transparent;
@@ -38,10 +41,10 @@ export default {
     }
   }
   &__content {
-    border-radius: .25rem;
+    border-radius: $radius;
     border: 1px solid;
     box-sizing: border-box;
-    font-size: $text-18;
+    font-size: $font-size;
     font-weight: normal;
     left: 100%;
     margin-left: .5rem;
@@ -58,13 +61,13 @@ export default {
     @include color("border-color", "grey-700");
   }
   &__arrow {
-    height:24px;
-    margin-top:-12px;
-    overflow:hidden;
-    position:absolute;
-    right:100%;
-    top:50%;
-    width:12px;
+    height: 24px;
+    margin-top: -12px;
+    overflow: hidden;
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    width: 12px;
 
     &::after {
       border: 1px solid;

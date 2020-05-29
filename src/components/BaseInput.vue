@@ -24,15 +24,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$font-size: $text-14;
+$padding: 1rem;
+$radius: .5rem;
+
 .base-input {
   width: 100%;
 
   &__field {
     border: 1px solid;
-    border-radius: .5rem;
+    border-radius: $radius;
     box-sizing: border-box;
-    font-size: $text-14;
-    padding: 1rem;
+    font-size: $font-size;
+    padding: $padding;
     width: inherit;
     @include color("background-color", "grey-200");
     @include color("border-color", "grey-300");

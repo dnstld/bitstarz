@@ -81,6 +81,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$bg-color-link-active: rgba(255, 255, 255, .1);
+$opacity-link-active: 1;
+$opacity-link-hover: .9;
+$opacity-link: .6;
+$padding-link: 1rem;
+
 .nav-bar {
   overflow-y: auto;
 
@@ -88,23 +94,23 @@ export default {
     align-items: center;
     display: flex;
     justify-content: center;
-    opacity: .6;
-    padding: 1rem;
+    opacity: $opacity-link;
+    padding: $padding-link;
     text-decoration: none;
     user-select: none;
     transition: opacity .3s ease-in-out;
     @include color("color", "white");
 
     &--active {
-      background-color: rgba(255, 255, 255, .1);
-      opacity: 1;
+      background-color: $bg-color-link-active;
+      opacity: $opacity-link-active;
       cursor: default;
     }
     &--menuopened {
       justify-content: flex-start;
     }
     &:hover {
-      opacity: .9;
+      opacity: $opacity-link-hover;
     }
   }
   &__text {

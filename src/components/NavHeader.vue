@@ -35,27 +35,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$header-height: 4rem;
+$height-header: 4rem;
+$padding-header: 0 1rem;
+$font-size-title: $text-20;
+$bg-color-btn-toggle: rgba(255, 255, 255, .1);
+$size-btn-toggle: 1.5rem;
 
 .nav-header {
   align-items: center;
   display: flex;
-  height: $header-height;
-  padding: 0 1rem;
+  height: $height-header;
+  padding: $padding-header;
   position: relative;
 
   &__title {
-    font-size: $text-20;
+    font-size: $font-size-title;
     text-transform: uppercase;
   }
   &__btnToggleMenu {
-    background-color: rgba(255, 255, 255, .1);
-    height: 1.5rem;
+    background-color: $bg-color-btn-toggle;
+    height: $size-btn-toggle;
     position: absolute;
     right: 0;
     top: 50%;
     transform: translateY(-50%) rotate(180deg);
-    width: 1.5rem;
+    width: $size-btn-toggle;
     @extend .btn-reset;
     @include color("color", "grey-500");
   }

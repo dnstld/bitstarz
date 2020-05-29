@@ -42,6 +42,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$font-size-header: $text-18;
+$padding-header: 1.5rem;
+
 .add-new-movie {
   border-radius: 1rem;
   margin: 1rem;
@@ -51,8 +54,8 @@ export default {
   @include color("background-color", "white");
 
   &__header {
-    font-size: $text-18;
-    padding: 1.5rem;
+    font-size: $font-size-header;
+    padding: $padding-header;
     text-align: center;
     text-transform: uppercase;
     @include color("color", "white");

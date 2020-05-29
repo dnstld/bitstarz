@@ -29,6 +29,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$size-emoji: 2.25rem;
+$margin-bottom-emoji: 1.5rem;
+$font-size-title: $text-20;
+$margin-bottom-title: 1rem;
+$font-size-back: $text-20;
+
 .flip-card {
   background-color: transparent;
   height: 100%;
@@ -69,19 +75,19 @@ export default {
     @include color("color", "grey-800");
   }
   &__emoji {
-    margin-bottom: 1.5rem;
-    width: 2.25rem;
+    margin-bottom: $margin-bottom-emoji;
+    width: $size-emoji;
   }
   &__emojisvj {
     width: 100%;
   }
   &__title {
-    font-size: $text-20;
-    margin-bottom: 1rem;
+    font-size: $font-size-title;
+    margin-bottom: $margin-bottom-title;
     text-transform: uppercase;
   }
   &__hashtag {
-    font-size: $text-20;
+    font-size: $font-size-back;
     text-transform: uppercase;
   }
 }

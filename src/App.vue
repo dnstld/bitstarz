@@ -24,8 +24,8 @@ export default {
 </script>
 
 <style lang="scss">
-$width-mobile: 90px;
-$width-desktop: 262px;
+$width-menu-mobile: 90px;
+$width-menu-desktop: 262px;
 
 .app {
   display: flex;
@@ -40,11 +40,11 @@ $width-desktop: 262px;
     top: 0;
     transition: width .3s ease-out;
     width: 100%;
-    max-width: $width-mobile;
+    max-width: $width-menu-mobile;
     z-index: 100;
 
     &--opened {
-      max-width: $width-desktop;
+      max-width: $width-menu-desktop;
     }
     @media (min-width: 1200px) {
       position: relative;
@@ -53,7 +53,7 @@ $width-desktop: 262px;
   &__main {
     width: 100%;
     overflow-y: auto;
-    padding-left: $width-mobile;
+    padding-left: $width-menu-mobile;
     transition: padding-left .3s ease-out;
 
     @media (min-width: 1200px) {

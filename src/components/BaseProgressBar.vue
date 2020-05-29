@@ -49,10 +49,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$height: .25rem;
+$radius: .12rem;
+$bg-color: rgba(255, 255, 255, .1);
+
 .base-progress-bar {
-  background-color: rgba(255, 255, 255, .1);
-  border-radius: .12rem;
-  height: .25rem;
+  background-color: $bg-color;
+  border-radius: $radius;
+  height: $height;
   overflow: hidden;
   width: 100%;
 

@@ -59,10 +59,23 @@ export default {
 
 <style lang="scss" scoped>
 .popular-movies {
+$padding-item: .5rem 1rem;
+$width-cover: 90px;
+$height-cover: 48px;
+$radius-cover: .5rem;
+$font-size-description: $text-14;
+$font-weight-description: 500;
+$margin-description: 0 1rem;
+$font-size-year: $text-12;
+$line-height-year: $text-14;
+$font-weight-year: 400;
+$margin-top-year: .25rem;
+$size-btn-play: 2rem;
+
   &__item {
     display: flex;
     align-items: center;
-    padding: .5rem 1rem;
+    padding: $padding-item;
     transition: background-color .3s ease-in;
 
     &:hover {
@@ -70,31 +83,31 @@ export default {
     }
   }
   &__cover {
-    width: 90px;
-    height: 48px;
+    width: $width-cover;
+    height: $height-cover;
     object-fit: cover;
-    border-radius: .5rem;
+    border-radius: $radius-cover;
   }
   &__description {
     display: flex;
     flex-direction: column;
     flex: 1;
-    font-size: $text-14;
-    font-weight: 500;
-    margin: 0 1rem;
+    font-size: $font-size-description;
+    font-weight: $font-weight-description;
+    margin: $margin-description;
   }
   &__year{
-    font-size: $text-12;
-    font-weight: 400;
-    line-height: $text-14;
-    margin-top: .25rem;
+    font-size: $font-size-year;
+    font-weight: $font-weight-year;
+    line-height: $line-height-year;
+    margin-top: $margin-top-year;
     @include color("color", "grey-700");
   }
   &__btn {
     border-radius: 50%;
-    height: 2rem;
+    height: $size-btn-play;
     position: relative;
-    width: 2rem;
+    width: $size-btn-play;
     @extend .btn-reset;
     @include color("background-color", "grey-300");
 

@@ -37,15 +37,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$padding-section: 1.25rem;
+$gap-between-info: .5rem;
+$font-size-total: $text-24;
+$font-weight-total: 500;
+$font-size-total-count: $text-14;
+$font-weight-total-count: 700;
+$margin-bottom-total-count: .25rem;
+$font-size-total-count-description: $text-12;
+$gap-actions-btn: 1rem;
+$margin-top-actions-btn: .75rem;
+
 .movies-overview {
   display: grid;
-  grid-row-gap: .5rem;
-  padding: 1.25rem;
+  grid-row-gap: $gap-between-info;
+  padding: $padding-section;
 
   &__total {
     display: block;
-    font-size: $text-24;
-    font-weight: 500;
+    font-size: $font-size-total;
+    font-weight: $font-weight-total;
   }
   &__count {
     display: flex;
@@ -60,19 +71,19 @@ export default {
     }
   }
   &__counttotal {
-    font-size: $text-14;
-    font-weight: 700;
-    margin-bottom: .25rem;
+    font-size: $font-size-total-count;
+    font-weight: $font-weight-total-count;
+    margin-bottom: $margin-bottom-total-count;
   }
   &__countdescription {
-    font-size: $text-12;
+    font-size: $font-size-total-count-description;
     @include color("color", "grey-300");
   }
   &__actions {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 1rem;
-    margin-top: .75rem;
+    grid-column-gap: $gap-actions-btn;
+    margin-top: $margin-top-actions-btn;
   }
 }
 </style>

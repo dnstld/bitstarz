@@ -44,6 +44,14 @@ export default {
 <style lang="scss" scoped>
 $bg-item: #fff;
 $bg-item-hover: #FFF6DE;
+$size-ticket-icon: 1.5rem;
+$font-size-description: $text-14;
+$font-weight-description: 500;
+$margin-description: 0 1rem;
+$font-size-expires: $text-12;
+$font-weight-expires: 400;
+$line-height-expires: $text-14;
+$margin-top-expires: .25rem;
 
 .my-coupons {
   &__item {
@@ -68,7 +76,7 @@ $bg-item-hover: #FFF6DE;
   }
   &__ticket {
     flex-shrink: 0;
-    width: 1.5rem;
+    width: $size-ticket-icon;
   }
   &__ticketsvg {
     width: 100%;
@@ -77,15 +85,15 @@ $bg-item-hover: #FFF6DE;
     display: flex;
     flex: 1;
     flex-direction: column;
-    font-size: $text-14;
-    font-weight: 500;
-    margin: 0 1rem;
+    font-size: $font-size-description;
+    font-weight: $font-weight-description;
+    margin: $margin-description;
   }
   &__expires {
-    font-size: $text-12;
-    font-weight: 400;
-    line-height: $text-14;
-    margin-top: .25rem;
+    font-size: $font-size-expires;
+    font-weight: $font-weight-expires;
+    line-height: $line-height-expires;
+    margin-top: $margin-top-expires;
     @include color("color", "grey-700");
   }
 }

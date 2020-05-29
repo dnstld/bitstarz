@@ -15,13 +15,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$size: 1.5rem;
+$font-size:  $text-14;
+$font-weight: 700;
+
 .user-starts {
-  width: 1.5rem;
+  width: $size;
   position: relative;
 
   &::after {
-    font-size: $text-14;
-    font-weight: 700;
+    font-size: $font-size;
+    font-weight: $font-weight;
     left: 50%;
     position: absolute;
     top: 50%;

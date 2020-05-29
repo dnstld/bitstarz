@@ -80,17 +80,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$overview-height: 15rem;
+$bg-color: rgba(255, 255, 255, 0);
+$bg-color-opened: rgba(255, 255, 255, .05);
+$height-narrowed: 15rem;
 
 .account-overview {
-  background-color: rgba(255, 255, 255, 0);
+  background-color: $bg-color;
 
   &--opened {
-    background-color: rgba(255, 255, 255, .05);
+    background-color: $bg-color-opened;
   }
   &__narrow {
     display: grid;
-    height: $overview-height;
+    height: $height-narrowed;
   }
   &__narrowitem {
     display: flex;
