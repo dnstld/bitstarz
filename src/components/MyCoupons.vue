@@ -6,7 +6,10 @@
       </div>
       <div class="my-coupons__info">
         <span class="my-coupons__name">{{coupon.name}}</span>
-        <span v-if="coupon.expires" class="my-coupons__expires">{{coupon.expires}}</span>
+        <span v-if="coupon.expires" class="my-coupons__expires">
+          Expires:
+          {{coupon.expires}}
+        </span>
       </div>
       <BaseButton primary>
         Button
@@ -46,7 +49,7 @@ $bg-item-hover: #FFF6DE;
   &__item {
     align-items: center;
     background: linear-gradient(
-      70deg,
+      60deg,
     $bg-item 40%,
     $bg-item-hover 40%,
     $bg-item-hover 60%,
@@ -57,13 +60,14 @@ $bg-item-hover: #FFF6DE;
     cursor: default;
     display: flex;
     padding: 1rem;
-    transition: all .75s ease-in;
+    transition: background-size .75s ease-in;
 
     &:hover {
       background-size: 900%;
     }
   }
   &__ticket {
+    flex-shrink: 0;
     width: 1.5rem;
   }
   &__ticketsvg {
@@ -75,7 +79,7 @@ $bg-item-hover: #FFF6DE;
     flex-direction: column;
     font-size: $text-14;
     font-weight: 500;
-    margin: 0 1.5rem;
+    margin: 0 1rem;
   }
   &__expires {
     font-size: $text-12;

@@ -21,7 +21,7 @@
         >
           <BaseIcon name="clock" />
           <template v-if="isMenuOpened">
-            <span class="nav-bar__text">Hurry Up</span>
+            <span class="nav-bar__text">Menu Item</span>
           </template>
         </router-link>
       </li>
@@ -33,7 +33,7 @@
         >
           <BaseIcon name="gift" />
           <template v-if="isMenuOpened">
-            <span class="nav-bar__text">Be Nice</span>
+            <span class="nav-bar__text">Menu Item</span>
           </template>
         </router-link>
       </li>
@@ -45,7 +45,7 @@
         >
           <BaseIcon name="user" />
           <template v-if="isMenuOpened">
-            <span class="nav-bar__text">Your Profile</span>
+            <span class="nav-bar__text">Menu Item</span>
           </template>
         </router-link>
       </li>
@@ -57,8 +57,7 @@
         >
           <BaseIcon name="megaphone" />
           <template v-if="isMenuOpened">
-            <span class="nav-bar__text"></span>
-            Speak Louder
+            <span class="nav-bar__text">Menu Item</span>
           </template>
         </router-link>
       </li>
@@ -83,6 +82,8 @@ export default {
 
 <style lang="scss" scoped>
 .nav-bar {
+  overflow-y: auto;
+
   &__link {
     align-items: center;
     display: flex;

@@ -5,13 +5,13 @@
         <div class="flip-card__emoji">
           <img src="/images/emoji.svg" alt="Smilling Face" class="flip-card__emojisvg">
         </div>
-        <span class="flip-card__randomtitle">Just a random card</span>
+        <span class="flip-card__title">Just a random card</span>
         <p>Far far away, behind the word mountains,
           far from the countries Vokalia and Consonantia,
           there live the blind texts.</p>
       </div>
       <div class="flip-card__back">
-        <p>#bitstarz</p>
+        <h1 class="flip-card__hashtag">#bitstarz</h1>
       </div>
     </div>
   </div>
@@ -34,6 +34,7 @@ export default {
   height: 100%;
   perspective: 1000px;
   width: 100%;
+  overflow: hidden;
 
   &__inner {
     align-items: center;
@@ -66,6 +67,22 @@ export default {
     transform: rotateY(180deg);
     @include color("background-color", "grey-200");
     @include color("color", "grey-800");
+  }
+  &__emoji {
+    margin-bottom: 1.5rem;
+    width: 2.25rem;
+  }
+  &__emojisvj {
+    width: 100%;
+  }
+  &__title {
+    font-size: $text-20;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+  &__hashtag {
+    font-size: $text-20;
+    text-transform: uppercase;
   }
 }
 </style>

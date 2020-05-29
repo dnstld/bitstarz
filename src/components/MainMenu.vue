@@ -22,7 +22,9 @@ export default {
 
 <style lang="scss" scoped>
 .main-menu {
-  flex-shrink: 0;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  height: 100%;
   @include color("background-color", "grey-900");
   @include color("color", "white");
 }

@@ -21,7 +21,6 @@
           uppercase
           full
           class="dashboard-panel__bigbutton"
-          :class="{ 'dashboard-panel__bigbutton--animated': isBigButtonAnimated }"
         >
           Big Green Button
         </BaseButton>
@@ -103,7 +102,6 @@ export default {
     return {
       totalMovies: this.$store.state.totalMovies,
       isFlipCard: false,
-      isBigButtonAnimated: false,
     };
   },
   computed: {
@@ -125,16 +123,6 @@ export default {
 <style lang="scss" scoped>
 .dashboard-panel {
   $root: &;
-  display: grid;
-  grid-template-columns: 100%;
-  grid-auto-rows: auto minmax(250px, min-content);
-  grid-row-gap: 1rem;
-  grid-template-areas:
-    "header"
-    "watched"
-    "coupons"
-    "popular"
-    "random";
   overflow-y: auto;
   width: 100%;
   padding: 1rem;
@@ -142,15 +130,16 @@ export default {
   box-sizing: border-box;
 
   @media (min-width: 1200px) {
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto minmax(200px, 1fr) minmax(200px, 1fr);
     grid-gap: 1.5rem;
+    height: 100%;
     padding: 1.5rem;
     grid-template-areas:
       "header header header"
       "watched coupons coupons"
       "watched popular random";
-
   }
 
   &__header {
@@ -173,6 +162,11 @@ export default {
     flex-direction: column;
     padding: 1rem;
     box-sizing: border-box;
+    margin-top: 1rem;
+
+    @media (min-width: 1200px) {
+      margin-top: 0;
+    }
   }
   &__cardtitle {
     font-size: $text-13;
@@ -207,6 +201,7 @@ export default {
       justify-content: center;
     }
     #{$root}__bigbutton {
+      will-change: transform;
       animation: shakeBigGreenButton 5s ease 2s infinite;
     }
   }
@@ -221,6 +216,11 @@ export default {
   }
   &__popular {
     grid-area: popular;
+    max-height: 300px;
+
+    @media (min-width: 1200px) {
+      max-height: 100%;
+    }
 
     #{$root}__cardcontent {
       margin-bottom: -1rem;
@@ -234,22 +234,15 @@ export default {
       display: flex;
       font-size: $text-14;
       line-height: 150%;
+      height: 350px;
       justify-content: center;
       flex-direction: column;
       text-align: center;
       @include color("color", "grey-700");
-    }
-    #{$root}__emoji {
-      margin-bottom: 1.5rem;
-      width: 2.25rem;
-    }
-    #{$root}__emojisvj {
-      width: 100%;
-    }
-    #{$root}__randomtitle {
-      font-size: $text-20;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
+
+      @media (min-width: 1200px) {
+        height: auto;
+      }
     }
   }
   &__modalbackdrop {
@@ -259,9 +252,15 @@ export default {
     height: 100%;
     justify-content: center;
     left: 0;
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100%;
+    z-index: 999;
+    will-change: auto;
+
+    @media (min-width: 1200px) {
+      position: absolute;
+    }
   }
 }
 @keyframes shakeBigGreenButton {
@@ -279,6 +278,9 @@ export default {
   }
   8% {
     transform: translate(-1px, 1px) rotate(1deg);
+  }
+  10% {
+    transform: translate(0px, 0px) rotate(0deg);
   }
   100% {
     transform: translate(0px, 0px) rotate(0deg);

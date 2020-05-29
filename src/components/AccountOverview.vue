@@ -65,6 +65,7 @@ export default {
     },
     enter(el, done) {
       gsap.to(el, {
+        delay: 0.3,
         duration: 0.3,
         opacity: 1,
         scale: 1,

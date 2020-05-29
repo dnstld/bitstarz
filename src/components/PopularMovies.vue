@@ -46,6 +46,11 @@ export default {
           year: 1971,
           cover: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwTDBz7DB7humFWfWUcc7DbicZgHBUOZHyD_ix4fr11mKUMU5T&usqp=CAU',
         },
+        {
+          name: 'The Shining',
+          year: 1980,
+          cover: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRwC7KQBZ669mKtv44TPO75oE6-XpDlvkpt0_JNjW6E7ylDfgC8&usqp=CAU',
+        },
       ],
     };
   },
@@ -68,6 +73,7 @@ export default {
     width: 90px;
     height: 48px;
     object-fit: cover;
+    border-radius: .5rem;
   }
   &__description {
     display: flex;
@@ -90,6 +96,7 @@ export default {
     position: relative;
     width: 2rem;
     @extend .btn-reset;
+    @include color("background-color", "grey-300");
 
     &::after {
       border-bottom: 6px solid transparent;

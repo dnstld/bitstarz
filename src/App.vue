@@ -34,18 +34,17 @@ $width-desktop: 262px;
   width: 100%;
 
   &__menu {
-    height: 100%;
+    height: 100vh;
     left: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
     position: fixed;
     top: 0;
     transition: width .3s ease-out;
-    width: $width-mobile;
+    width: 100%;
+    max-width: $width-mobile;
     z-index: 100;
 
     &--opened {
-      width: $width-desktop;
+      max-width: $width-desktop;
     }
     @media (min-width: 1200px) {
       position: relative;
@@ -55,6 +54,7 @@ $width-desktop: 262px;
     width: 100%;
     overflow-y: auto;
     padding-left: $width-mobile;
+    transition: padding-left .3s ease-out;
 
     @media (min-width: 1200px) {
       padding-left: 0;
